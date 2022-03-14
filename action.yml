@@ -4,6 +4,9 @@ inputs:
   status:
     description: 'The requested status of commit ("APPROVED", "DISMISSED")'
     required: true
+  pull-number:
+    description: 'The requested status of commit ("APPROVED", "DISMISSED")'
+    required: true
 outputs:
   sha:
     description: 'The sha of the found commit; null if not found'
