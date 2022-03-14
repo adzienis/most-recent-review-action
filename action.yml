@@ -1,0 +1,22 @@
+name: 'Recent Approval Action'
+description: 'Fetches the commit with the most recent status'
+inputs:
+  token:
+    description: 'Github token'
+    required: true
+  status:
+    description: 'An array of review statuses: "APPROVED", "DISMISSED" (string[])'
+    required: true
+  pull-number:
+    description: 'The pull number of the PR (number)'
+    required: true
+outputs:
+  sha:
+    description: 'The sha of the found commit; null if not found (string)'
+  username:
+    description: 'User who created this status; null if not found (string)'
+  date:
+    description: 'Date (UTC) of when this status was created; null if not found (string)'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
