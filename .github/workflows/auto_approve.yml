@@ -6,4 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ github.event.pull_request.state }}"
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          status: 'APPROVED'
+          pull-number: "${{ github.event.pull_request.id }}"
 

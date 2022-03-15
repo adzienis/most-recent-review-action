@@ -5,7 +5,7 @@ inputs:
     description: 'The requested status of commit ("APPROVED", "DISMISSED")'
     required: true
   pull-number:
-    description: 'The requested status of commit ("APPROVED", "DISMISSED")'
+    description: 'The pull number of the PR'
     required: true
 outputs:
   sha:
