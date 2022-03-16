@@ -59027,14 +59027,16 @@ async function main() {
   const requestedStatus = core.getInput('status').split(",").map(v => v.trim());
 
   const { data } = await octokit.request(`GET /repos/${owner}/${repo}/pulls/${pullNumber}/reviews`);
-  console.log('blah', requestedStatus)
+
+  console.log(requestedStatus, "asdasd ")
+  console.log(data.map(v => requestedStatus.includes(v.state)))
+  console.log(data.map(v => v.user.type))
 
   if(data.length === 0) {
     console.log("Could not find any reviews.");
     return null;
   }
 
-  console.log(data.map(v=> v.state))
   const filtered_reviews = data.filter(v => requestedStatus.includes(v.state) && v.user.type !== "Bot");
 
   if(filtered_reviews.length === 0) {
