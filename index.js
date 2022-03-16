@@ -14,7 +14,7 @@ async function main() {
     return null;
   }
 
-  const filtered_reviews = data.filter(v => v.state === requestedStatus && v.user.type !== "Bot");
+  const filtered_reviews = data.filter(v => requestedStatus.includes(v.state) && v.user.type !== "Bot");
 
   if(filtered_reviews.length === 0) {
     console.log("Could not find any reviews with requested status.");
