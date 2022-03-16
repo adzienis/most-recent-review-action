@@ -14,6 +14,8 @@ async function main() {
     return null;
   }
 
+  console.log(requestedStatus, v.state)
+
   const filtered_reviews = data.filter(v => requestedStatus.includes(v.state) && v.user.type !== "Bot");
 
   if(filtered_reviews.length === 0) {
