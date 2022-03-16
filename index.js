@@ -8,6 +8,7 @@ async function main() {
   const requestedStatus = core.getInput('status').split(",").map(v => v.trim());
 
   const { data } = await octokit.request(`GET /repos/${owner}/${repo}/pulls/${pullNumber}/reviews`);
+  console.log('blah', requestedStatus)
 
   if(data.length === 0) {
     console.log("Could not find any reviews.");
